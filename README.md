@@ -14,4 +14,5 @@ Click [here](https://jt5519.github.io/Calendar-App/index.html) for the demo vide
 ## Details
 * Created in Android Studio, using Java and the Android Development Kit 
 * Refered to the [developer documentation](https://developer.android.com/docs) for help
-* The apk v1.0.0 is available for download in releases and compatible with API level 29 
+* The apk v1.0.0 is available for download in [release](https://github.com/JT5519/Calendar-App/releases) 
+* Compatible with API level 29 
