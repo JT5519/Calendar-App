@@ -1,6 +1,6 @@
 # J CAL
 
-This is the bare bones, core functionality-only version of the calendar application I made for my internship. The project I undertook as an android development intern was to create a religious calendar application. My role was to create the functionality i.e. the core features of the calendar, after which my internship was complete and I handed the project over to my manager. Further increments to the app were not communicated to me.
+This is the bare bones, core functionality-only version of the calendar application I made for my internship. The project I undertook as a Software Developer Intern was to create a religious calendar application. My role was to create the functionality i.e. the core features of the calendar, after which my internship was complete and I handed the project over to my manager. Further increments to the app were not communicated to me.
 
 Click [here](https://jt5519.github.io/Calendar-App/index.html) for the demo video, hosted on a GitHub static page. 
 
