@@ -7,7 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
-
+/*Is the interface class for accessing the MySQL database,
+all queries go through this class*/
 public class DBOpenHelper extends SQLiteOpenHelper {
     private static final String CREATE_EVENTS_TABLE = "create table "
             + DBStructure.EVENT_TABLE_NAME + "(ID INTEGER PRIMARY KEY AUTOINCREMENT, "
