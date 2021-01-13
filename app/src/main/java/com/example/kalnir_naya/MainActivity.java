@@ -3,7 +3,7 @@ package com.example.kalnir_naya;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-
+//main activity, sets up the calendar grid view
 public class MainActivity extends AppCompatActivity {
     CustomCalendarView customCalendarView;
     @Override
