@@ -19,7 +19,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-
+/*class that creates a month specific grid to display in the gridview. CustomCalendarView.java
+  calls this class when it is first initialized.*/ 
 public class MyGridAdapter extends ArrayAdapter {
     List<Date> dates;
     Calendar currentDate;
