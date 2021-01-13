@@ -36,7 +36,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
-
+/*Is the event manager class, waits for input from
+  user to decide which layout to deploy*/
 public class CustomCalendarView extends LinearLayout {
     ImageButton NextButton,PreviousButton;
     TextView CurrentDate;
