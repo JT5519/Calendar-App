@@ -1,5 +1,8 @@
 package com.example.kalnir_naya;
-
+/*Class defines static final variables that stores columns name
+of the events table in the database, this to give logical meaning to MySQL calls
+from the code
+*/
 public class DBStructure {
     public static final String DB_NAME = "EVENTS_DB";
     public static final int DB_VERSION = 2;
