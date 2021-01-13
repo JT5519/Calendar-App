@@ -1,5 +1,5 @@
 package com.example.kalnir_naya;
-
+//Defines the structure for an events object. 
 public class Events {
     String EVENT,TIME,DATE,MONTH,YEAR;
 
