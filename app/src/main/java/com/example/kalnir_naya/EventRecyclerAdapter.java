@@ -31,7 +31,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
-
+/*Creates the list view of events that is displayed
+when a day is clicked. It can be refreshed on certain
+events such as an event being deleted or edited*/
 public class EventRecyclerAdapter extends
         RecyclerView.Adapter<EventRecyclerAdapter.MyViewHolder> {
 
