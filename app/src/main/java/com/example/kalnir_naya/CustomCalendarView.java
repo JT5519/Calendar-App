@@ -36,8 +36,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
-/*Is the event manager class, waits for input from
-  user to decide which layout to deploy*/
+
 public class CustomCalendarView extends LinearLayout {
     ImageButton NextButton,PreviousButton;
     TextView CurrentDate;
@@ -54,16 +53,17 @@ public class CustomCalendarView extends LinearLayout {
     List<Date> dates = new ArrayList<>();
     List<Events> eventsList = new ArrayList<>();
     int alarmYear,alarmMonth,alarmDay,alarmHour,alarmMinute;
-    DBOpenHelper dbOpenHelper;
+    DBOpenHelper dbOpenHelper; //object that handles interaction with the database
+    //constructors
     public CustomCalendarView(Context context) {
         super(context);
     }
-
     public CustomCalendarView(final Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         this.context = context;
         InitializeLayout();
         SetUpCalendar();
+        //previous month on tapping
         PreviousButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,6 +71,7 @@ public class CustomCalendarView extends LinearLayout {
                 SetUpCalendar();
             }
         });
+        //next month on tapping
         NextButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,6 +79,7 @@ public class CustomCalendarView extends LinearLayout {
                 SetUpCalendar();
             }
         });
+        //tapping on a date in the grid opens the add event layout for that date
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -95,6 +97,7 @@ public class CustomCalendarView extends LinearLayout {
                 alarmMonth = dateCalendar.get(Calendar.MONTH);
                 alarmDay = dateCalendar.get(Calendar.DAY_OF_MONTH);
                 Button AddEvent = addView.findViewById(R.id.addevent);
+                //interface to set time
                 SetTime.setOnClickListener(new OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -125,6 +128,7 @@ public class CustomCalendarView extends LinearLayout {
                 final String date = eventDateFormat.format(dates.get(position));
                 final String month = monthFormat.format(dates.get(position));
                 final String year = yearFormat.format(dates.get(position));
+                //adds event to the event list
                 AddEvent.setOnClickListener(new OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -153,7 +157,7 @@ public class CustomCalendarView extends LinearLayout {
                 alertDialog.show();
             }
         });
-
+        //opens event list for the date that is long pressed
         gridView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener(){
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
@@ -186,7 +190,10 @@ public class CustomCalendarView extends LinearLayout {
             }
         });
     }
-
+    public CustomCalendarView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+    }
+    //function to get event ID
     private int getRequestCode(String date,String event,String time){
         int code = 0;
         dbOpenHelper = new DBOpenHelper(context);
@@ -200,6 +207,7 @@ public class CustomCalendarView extends LinearLayout {
         dbOpenHelper.close();
         return code;
     }
+    //function to set notification
     private void setAlarm(Calendar calendar,String event, String time, int RequestCode)
     {
         Intent intent = new Intent(context.getApplicationContext(),AlarmReceiver.class);
@@ -231,9 +239,6 @@ public class CustomCalendarView extends LinearLayout {
         return arrayList;
     }
 
-    public CustomCalendarView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-    }
     private void SaveEvent(String event,String time,String date,String month,String year
     ,String notify)
     {
@@ -243,6 +248,7 @@ public class CustomCalendarView extends LinearLayout {
         dbOpenHelper.close();
         Toast.makeText(context, "Event Saved", Toast.LENGTH_SHORT).show();
     }
+    //initial assignment of variables and views
     private void InitializeLayout(){
         LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.calendar_layout,this);
@@ -251,7 +257,7 @@ public class CustomCalendarView extends LinearLayout {
         CurrentDate = view.findViewById(R.id.current_Date);
         gridView = view.findViewById(R.id.gridview);
     }
-
+    //adding current month data to the calendar view 
     private void SetUpCalendar()
     {
         String currentDate = dateFormat.format(calendar.getTime());
